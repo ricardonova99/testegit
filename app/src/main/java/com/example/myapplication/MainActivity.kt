@@ -2,7 +2,9 @@ package com.example.myapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.myapplication.R
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 
 class MainActivity : AppCompatActivity()
 {
@@ -12,4 +14,22 @@ class MainActivity : AppCompatActivity()
         setContentView(R.layout.activity_main)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean
+    {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean
+    {
+        return when (item.itemId)
+        {
+            R.id.optionAdd -> true
+            R.id.optionRemove -> true
+            R.id.optionEdit -> true
+            R.id.optionSelectM -> true
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 }
